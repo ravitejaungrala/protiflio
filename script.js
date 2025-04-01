@@ -30,7 +30,7 @@ document.querySelectorAll('.navbar a').forEach(n =>
 
 // Typed.js for multiple text animation
 const typed = new Typed('.multiple-text', {
-    strings: ['AI', 'Web Developer', 'Mobile App Developer', 'UI/UX Designer'],
+    strings: ['UI/UX Designer', 'Web Developer', 'Mobile App Developer', 'Brand Designer'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -46,7 +46,7 @@ const sr = ScrollReveal({
 });
 
 sr.reveal('.home-content, .heading', {});
-sr.reveal('.home-img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', {
+sr.reveal('.home-img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form, .certifications-container, .achievements-container, .publications-container', {
     delay: 200,
     origin: 'bottom'
 });
@@ -58,6 +58,36 @@ sr.reveal('.home-content p, .about-content', {
     delay: 200,
     origin: 'right'
 });
+
+// Timeline animation
+const containers = document.querySelectorAll('.container');
+
+function checkTimeline() {
+    const triggerBottom = window.innerHeight / 5 * 4;
+    
+    containers.forEach(container => {
+        const containerTop = container.getBoundingClientRect().top;
+        
+        if(containerTop < triggerBottom) {
+            container.style.opacity = '1';
+            container.style.transform = 'translateX(0)';
+        }
+    });
+}
+
+// Set initial state
+containers.forEach((container, index) => {
+    container.style.opacity = '0';
+    if(index % 2 === 0) {
+        container.style.transform = 'translateX(-100px)';
+    } else {
+        container.style.transform = 'translateX(100px)';
+    }
+    container.style.transition = 'all 0.5s ease';
+});
+
+window.addEventListener('scroll', checkTimeline);
+checkTimeline(); // Run once on load
 
 // Testimonial slider
 const testimonialSlides = document.querySelectorAll('.testimonial-slide');
@@ -102,32 +132,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-// Timeline animation
-const containers = document.querySelectorAll('.container');
-
-function checkTimeline() {
-    const triggerBottom = window.innerHeight / 5 * 4;
-    
-    containers.forEach(container => {
-        const containerTop = container.getBoundingClientRect().top;
-        
-        if(containerTop < triggerBottom) {
-            container.style.opacity = '1';
-            container.style.transform = 'translateX(0)';
-        }
-    });
-}
-
-// Set initial state
-containers.forEach((container, index) => {
-    container.style.opacity = '0';
-    if(index % 2 === 0) {
-        container.style.transform = 'translateX(-100px)';
-    } else {
-        container.style.transform = 'translateX(100px)';
-    }
-    container.style.transition = 'all 0.5s ease';
-});
-
-window.addEventListener('scroll', checkTimeline);
-checkTimeline(); // Run once on load
