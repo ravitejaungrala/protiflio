@@ -102,3 +102,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+// Timeline animation
+const containers = document.querySelectorAll('.container');
+
+function checkTimeline() {
+    const triggerBottom = window.innerHeight / 5 * 4;
+    
+    containers.forEach(container => {
+        const containerTop = container.getBoundingClientRect().top;
+        
+        if(containerTop < triggerBottom) {
+            container.style.opacity = '1';
+            container.style.transform = 'translateX(0)';
+        }
+    });
+}
+
+// Set initial state
+containers.forEach((container, index) => {
+    container.style.opacity = '0';
+    if(index % 2 === 0) {
+        container.style.transform = 'translateX(-100px)';
+    } else {
+        container.style.transform = 'translateX(100px)';
+    }
+    container.style.transition = 'all 0.5s ease';
+});
+
+window.addEventListener('scroll', checkTimeline);
+checkTimeline(); // Run once on load
