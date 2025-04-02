@@ -46,7 +46,7 @@ const sr = ScrollReveal({
 });
 
 sr.reveal('.home-content, .heading', {});
-sr.reveal('.home-img, .portfolio-container, .contact form',.certifications-container, .achievements-container, .publications-container', {
+sr.reveal('.home-img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form, .certifications-container, .achievements-container, .publications-container', {
     delay: 200,
     origin: 'bottom'
 });
