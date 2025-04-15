@@ -30,7 +30,9 @@ document.querySelectorAll('.navbar a').forEach(n =>
 
 // Typed.js for multiple text animation
 const typed = new Typed('.multiple-text', {
-    strings: ['UI/UX Designer', 'Web Developer', 'Mobile App Developer', 'Brand Designer'],
+    strings:['UI/UX Designer', 'Web Developer', 'Mobile App Developer', 'Brand Designer', 
+ 'AI/ML Developer', 'Data Scientist', 'Cybersecurity Analyst', 
+ 'Computer Vision Engineer', 'Chatbot Developer', 'Backend Developer', 'Cloud Enthusiast'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
